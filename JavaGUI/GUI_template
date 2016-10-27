@@ -1,0 +1,162 @@
+package homework;
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.im.InputContext;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+class DecimalConvert {
+	JFrame frame1 = new JFrame("进制转换器");
+	JPanel panel1 = new JPanel();
+	JLabel label1 = new JLabel("输入:", JLabel.CENTER);
+	JLabel label2 = new JLabel("结果:", JLabel.CENTER);
+	JButton button1 = new JButton("计算");
+	Font font1 = new Font("Arial", Font.BOLD, 36);
+	String str1 = null, str2 = null;
+	JTextField text1 = new JTextField(12);
+	JTextField text2 = new JTextField(12);
+
+	public DecimalConvert() {
+
+		// 设置label颜色RGB
+		label1.setOpaque(true);// 此句很重要设置JLabel可以更改背景颜色
+		label1.setBackground(new Color(255, 127, 255));
+		label2.setOpaque(true);// 此句很重要设置JLabel可以更改背景颜色
+		label2.setBackground(new Color(80, 255, 80));
+		button1.setOpaque(true);// 此句很重要设置JLabel可以更改背景颜色
+		button1.setBackground(new Color(127, 255, 127));
+		text1.setText("00");
+		button1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// 判断是否是按钮
+				if (e.getSource() == button1) {
+					text1.setText(text1.getText());
+					str1 = text1.getText();
+					if ((Integer.parseInt(str1) >= 90)
+							&& (Integer.parseInt(str1) <= 100)) {
+						str2 = "A";
+						text2.setText(str2);
+					} else if ((Integer.parseInt(str1) >= 80)
+							&& (Integer.parseInt(str1) <= 89)) {
+						str2 = "B";
+						text2.setText(str2);
+					} else if ((Integer.parseInt(str1) >= 70)
+							&& (Integer.parseInt(str1) <= 79)) {
+						str2 = "C";
+						text2.setText(str2);
+					} else if ((Integer.parseInt(str1) >= 60)
+							&& (Integer.parseInt(str1) <= 69)) {
+						str2 = "D";
+						text2.setText(str2);
+					} else if ((Integer.parseInt(str1) >= 0)
+							&& (Integer.parseInt(str1) <= 59)) {
+						str1 = "E";
+						text2.setText(str1);
+					} else {
+						text1.setText("分数范围错误!");
+						text2.setText("?");
+					}
+
+				}
+			}
+		});
+		frame1.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(1);
+			}
+		});
+		// 创建布局
+		FlowLayout fl1 = new FlowLayout(FlowLayout.CENTER, 20, 12);// 对齐,H间距,V间距
+		// 现在所有的内容都加入到了JPanel1之中
+		panel1.add(label1);
+		panel1.add(text1);
+		panel1.add(label2);
+		panel1.add(text2);
+		panel1.add(button1);
+		panel1.setBackground(Color.blue);
+		panel1.setBounds(0, 0, 200, 100);
+		panel1.setLayout(fl1);
+		frame1.add(panel1);// 将面板加入到窗体之上
+		// 设置属性
+		frame1.setLayout(fl1);// 参数null可以取消frame布局,使用绝对布局
+		frame1.setBounds(50, 50, 700, 300);// 绝对布局
+		frame1.setForeground(Color.BLUE); // 将背景设置成蓝色
+		frame1.setBackground(Color.RED); // 设置窗体的背景颜色????????????????????
+		frame1.setVisible(true); // 让组件可见
+	}
+
+
+}
+
+public class DecimalConvert2_8_16 {
+	public static void main(String[] args) {
+		
+		new DecimalConvert();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//进制转换
+
+
+public class Change {
+	/* 转为16进制 */
+	static void cha_16(int n) {// 27
+		if (n >= 16)
+			cha_16(n / 16);// 求整
+		if (n % 16 < 10)// 取余数
+			System.out.print(n % 16);//无返回值 console输出
+		else
+			System.out.print((char) (n % 16 + 55));// 97='A'
+	}
+
+	/* 转为2进制 */
+	static void cha_2(int n) {// 9
+		if (n >= 2)
+			cha_2(n / 2);
+		System.out.print(n % 2);
+	}
+
+	/* 转为8进制 */
+	static void cha_8(int n) {// n=19;
+		if (n >= 8) {
+			cha_8(n / 8);
+			System.out.print(n % 8);
+		} else
+			System.out.print(n);
+	}
+
+	/* 主程序入口 */
+	public static void main(String[] args) {
+
+		int a = 1039, b = 15, c = 172; // 测试值
+		System.out.print("十进制数: " + a + "==> 十六进制输出: ");
+		cha_16(a);
+		System.out.print("十进制数: " + b + "==> 二进制输出: ");
+		cha_2(b);
+		System.out.print("十进制数: " + c + "==> 八进制输出: ");
+		cha_8(c);
+	}
+}
