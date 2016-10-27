@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+<title>My first JSP page</title>
+<!--charset 定义文件的字符编码 -->
+<!--
+<meta http-equiv="charset" content="iso-8859-1"> //过时了！
+-->
+<meta charset="UTF-8"/>
+<!--name 属性把 content 属性连接到 name。-->
+<!--content 属性设置或返回 <meta> 元素的 content 属性的值。-->
+<!--scheme 属性设置或返回用于解释 content 属性的值的格式。-->
+<meta name="keywords" content="HTML5,CSS3,JavaScript V8,JSP,PHP,ASP.NET,C#..."/>
+<meta name="author" content="xgqfrms"/>
+<meta name="description" content="HTML5,CSS3,JavaScript V8,JSP,PHP,ASP.NET,C#..."/>
+<meta name="generator" content="HTML5,CSS3,JavaScript V8,JSP,PHP,ASP.NET,C#..."/>
+<meta name="revised" content="2006-11-03" scheme="YYYY-MM-DD" />
+<meta name="others" content="HTML5,CSS3,JavaScript V8,JSP,PHP,ASP.NET,C#..."/>
+<!--httpEquiv 属性把 content 属性连接到 HTTP 头部。-->
+<meta http-equiv="content-type" content="5" />
+<meta http-equiv="refresh" content="5" /><!--每 5 秒刷新页面-->
+<meta http-equiv="refresh" content="5;url=http://www.w3school.com.cn"" /><!--5 秒后重定向页面-->
+<meta http-equiv="expires" content="31 Dec 2016" />
+<meta http-equiv="set-cookie" content="5" />
+
+<link href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="tomcat.css" rel="stylesheet" type="text/css" />
+
+
+<link href="01.css"type="text/css" rel="stylesheet" />
+<link type="text/javascript" src="01.js"/>
+</head>
+<body>
+<div id="container">
+<form action="do.jsp" id="form1">
+<input type="text" name="ID"/><input type="hidden" value="ID Error!"/><br/>
+<input type="text" name="userno"/><input type="hidden" value="username Error!"/><br/>
+<input type="password" name="pwd"/><input type="hidden" value="password Error!"/><br/>
+<input type="submit" value="提交"/>
+<input type="reset" value="重置"/>
+</form>
+</div>
+</body>
+</html>

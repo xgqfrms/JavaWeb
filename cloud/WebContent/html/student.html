@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>JSP login</title>
+
+    <style type="text/css">
+        body{
+            background:gold;
+        }
+        .img1{
+            background: url(cc.png) no-repeat;
+            background-size:contain;
+            position: absolute;
+            margin-left:50px;
+            margin-top:50px;
+            width:200px;
+            height:200px;
+
+        }
+
+        .form1{
+            background:green;
+            position: absolute;
+            width:500px;
+            height:300px;
+            margin-left:500px;
+            margin-top:100px;
+
+        }
+        .p1{
+            background:lawngreen;
+            position: absolute;
+            width:400px;
+            height:100px;
+            margin-left:500px;
+            margin-top:10px;
+            padding-left: 100px;
+
+        }
+        .x{
+            aglin:center;
+            margin-top:100px;
+            margin-left:100px;
+        }
+    </style>
+</head>
+<body>
+<div class="img1">
+
+</div>
+<script language="javascript">
+    function validate(f){
+        if(!(/^\w{5,15}$/.test(f.userid.value))){
+            alert("用户ID必须是5~15位！") ;
+            f.userid.focus() ;
+            return false ;
+        }
+        if(!(/^\w{5,15}$/.test(f.userpass.value))){
+            alert("密码必须是5~15位！") ;
+            f.userpass.focus() ;
+            return false ;
+        }
+    }
+</script>
+<div class="p1"><p><h1>学生访问页面！</h1></P></div>
+<div class="form1">
+
+
+    <form class="x" action="LoginServlet" method="post" onSubmit="return validate(this)">
+        用户ID:<input type="text" name="userid"><br/>
+        <p></p>
+        密&nbsp;码:<input type="password" name="userpass"><br/>
+        <p>&nbsp;</p>
+	
+	<span style="margin-left:70px"></span>
+	<input type="submit" value="登陆"><span style="margin-left:50px"></span>
+	<input type="reset" value="重置">
+    </form>
+</div>
+</body>
+</html>
